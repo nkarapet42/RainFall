@@ -1,0 +1,17 @@
+Ghidra analysis notes — level1
+
+1. Main function:
+
+- n() call
+
+2. N function:
+
+- char local_20c[520]
+- fgets(local_20c,0x200,stdin);
+- printf(local_20c);
+- exit(1)
+
+3. O function:
+
+- system("/bin/sh")
+- _exit(1)

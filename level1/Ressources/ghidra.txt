@@ -1,0 +1,10 @@
+Ghidra analysis notes — level1
+
+1. Main function:
+
+- char local_50[76]
+- gets(local_50)
+
+2. Run function:
+
+- system("/bin/sh")

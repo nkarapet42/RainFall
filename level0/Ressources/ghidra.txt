@@ -1,0 +1,14 @@
+Ghidra analysis notes — level0
+
+1. Main function:
+
+- The program calls atoi on argv[1]
+- Compares the result with 0x1a7
+- If yes:
+    - strdup("/bin/sh")
+    - setresuid(geteuid())
+    - setresgid(getegid())
+    - execv("/bin/sh")
+
+2. Output:
+   If you pass "423", the program will give you a shell as the binary's owner.

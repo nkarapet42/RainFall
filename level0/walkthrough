@@ -1,0 +1,23 @@
+level0 walkthrough
+==================
+
+1. 
+$ ls -l
+-rwsr-x---+ 1 level1 users 747441 Mar 6 2016 level0
+
+2.
+$ ./level0
+segv
+
+3. ghidra usage 
+
+    get that atoi(argv[1])
+    if (num == 0x1a7)
+      system("/bin/sh"); by level1
+
+4.
+$ ./level0 423
+
+5.
+$ cat /home/level1/.pass
+<flag>

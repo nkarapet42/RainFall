@@ -1,0 +1,12 @@
+Ghidra analysis notes — level1
+
+1. Main function:
+
+- v() call
+
+2. V function:
+
+- char local_20c[520]
+- fgets(local_20c,0x200,stdin);
+- printf(local_20c)
+- if statement with m == 0x40

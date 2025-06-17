@@ -1,0 +1,26 @@
+level5 walkthrough
+==================
+
+1. 
+$ ls -l
+-rwsr-s---+ 1 level6 users  5385 Mar  6  2016 level5
+
+
+2.
+$ ./level5
+//waiting for input
+
+3. ghidra usage 
+
+find that can change an exit address to call o function
+
+4. use <echoposition.txt> script and find the position of exit
+
+with gdb find the o function call address, <info functions o>
+
+change it to decimal to rewrite bytes to exit
+
+5. use <valuechange.txt> to make a file which will give to ./level5, for rewriting the exit
+
+6. 
+$ (cat /tmp/exploit5; cat) | ./level5

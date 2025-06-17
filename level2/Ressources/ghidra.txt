@@ -1,0 +1,12 @@
+Ghidra analysis notes — level1
+
+1. Main function:
+
+- p() call
+
+2. P function:
+
+- char local_50[76]
+- if statement
+- puts()
+- strdup()

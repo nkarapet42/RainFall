@@ -1,4 +1,3 @@
-Ghidra analysis notes — level0
 
 1. Main function:
 

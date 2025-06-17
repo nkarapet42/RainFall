@@ -13,6 +13,6 @@ $ ./bonus3
 find main, and if statement, that if strcmp returns 0, then it will call /bin/sh
 and it accept one argument, as num, make it integer and in this position do password[num] = 0, and then cmpare password with argv[1]
 
-sooo if we give 0 as argument("\0" asccii), it will be password[0] = '\0', so cmpare "\0" with "\0" return 0 and it calls /bin/sh
+sooo if we give "" as argument("\0" asccii), atoi() return 0, it will be password[0] = '\0', so cmpare "\0" with "\0" return 0 and it calls /bin/sh
 
-4. ./bonus3 0
+4. ./bonus3 ""
